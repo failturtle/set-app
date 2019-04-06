@@ -38,7 +38,6 @@ class card:
 
 cards = [card(x) for x in range(81)]
 random.shuffle(cards)
-# cards = cards[:24]
 
 def isSet(a):
 	if len(a) != 3:
@@ -101,7 +100,7 @@ def reset(ar):
 
 end = 0
 
-def redrawWindow(cards):
+def redrawWindow(cards, numCardsLeft):
 	# win.fill((244,230,251))
 	global currentCoordinates
 	global end
@@ -126,6 +125,8 @@ def redrawWindow(cards):
 	if end:
 		text = myfont.render('Game Over!', False, (0, 0, 0))
 		win.blit(text, (600 - text.get_rect().width/2, 700))
+	text = myfont.render('Cards left: '+str(numCardsLeft), False, (0, 0, 0))
+	win.blit(text, (70, 40))
 
 	pygame.display.update()
 
@@ -207,5 +208,5 @@ def main():
 				pygame.quit()
 
 
-		redrawWindow(curCards)
+		redrawWindow(curCards, len(cards))
 main()
