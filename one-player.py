@@ -162,13 +162,7 @@ def main():
 	curCards = cards[:12]
 	cards = cards[12:]
 	while run:
-		while not isThereASet(curCards):
-			if len(cards) == 0:
-				end = 1
-				break
-			curCards.append(getNextCard())
-			curCards.append(getNextCard())
-			curCards.append(getNextCard())
+		
 		for event in pygame.event.get():
 			if event.type == pygame.MOUSEBUTTONUP:
 				pos = pygame.mouse.get_pos()
@@ -199,10 +193,15 @@ def main():
 										break
 						if entered:
 							reset(curCards)
+				while not isThereASet(curCards):
+					if len(cards) == 0:
+						end = 1
+						break
+					curCards.append(getNextCard())
+					curCards.append(getNextCard())
+					curCards.append(getNextCard())
 
-			if event.type == pygame.QUIT:
-				run = False
-				pygame.quit()
+
 
 
 		redrawWindow(curCards, len(cards))
