@@ -189,14 +189,14 @@ def main():
 							entered = 1
 							if x == -1:
 								break
-								for i in range(len(curCards)):
-									if curCards[i].num == x:
-										if len(curCards) > 12 or len(cards) == 0:
-											curCards.remove(curCards[i])
-										else:
-											f = getNextCard()
-											curCards[i] = f
-											break
+							for i in range(len(curCards)):
+								if curCards[i].num == x:
+									if len(curCards) > 12 or len(cards) == 0:
+										curCards.remove(curCards[i])
+									else:
+										f = getNextCard()
+										curCards[i] = f
+										break
 						if entered:
 							reset(curCards)
 
