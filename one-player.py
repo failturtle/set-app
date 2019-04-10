@@ -160,7 +160,15 @@ def main():
 	global end
 	run = True
 	curCards = cards[:12]
-	cards = cards[12:]
+	cards = cards[12:]	
+	while not isThereASet(curCards):
+		if len(cards) == 0:
+			end = 1
+			break
+		curCards.append(getNextCard())
+		curCards.append(getNextCard())
+		curCards.append(getNextCard())
+
 	while run:
 		
 		for event in pygame.event.get():
