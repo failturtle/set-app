@@ -119,7 +119,7 @@ def redrawWindow(cards, numCardsLeft):
 		currentCoordinates.append(screenCoordinate)
 		if cards[i].isSelected:
 			pygame.draw.rect(win, (0, 100, 255), 
-					(screenCoordinate[0]-5, screenCoordinate[1]-5, CARD_WIDTH+10, CARD_HEIGHT+10), 3)  # width = 3
+					(screenCoordinate[0]-5, screenCoordinate[1]-5, CARD_WIDTH+7, CARD_HEIGHT+8), 3)  # width = 3
 		win.blit(img, screenCoordinate, image_props)
 
 	if end:
@@ -195,6 +195,7 @@ def main():
 								if curCards[i].num == x:
 									if len(curCards) > 12 or len(cards) == 0:
 										curCards.remove(curCards[i])
+										break
 									else:
 										f = getNextCard()
 										curCards[i] = f
